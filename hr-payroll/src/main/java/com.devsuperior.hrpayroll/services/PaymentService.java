@@ -7,6 +7,6 @@ import org.springframework.stereotype.Service;
 public class PaymentService {
 
     public Payment getPayment(long workerId, int days) {
-        return new Payment(null, "Bob", 10.0, days);
+        return new Payment("Bob", 10.0, days);
     }
 }
