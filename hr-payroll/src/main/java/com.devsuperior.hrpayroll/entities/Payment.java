@@ -37,4 +37,8 @@ public class Payment {
     public void setDays(Integer days) {
         this.days = days;
     }
+
+    public Double getTotal() {
+        return days * dailyIncome;
+    }
 }
