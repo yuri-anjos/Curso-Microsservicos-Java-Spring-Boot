@@ -1,5 +1,6 @@
 package com.devsuperior.hrpayroll.resources;
 
+import com.devsuperior.hrpayroll.entities.Payment;
 import com.devsuperior.hrpayroll.services.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +16,7 @@ public class PaymentResource {
     private PaymentService paymentService;
 
     @GetMapping(value = "/{workerId}/days/{days}")
-    public Double getPayment(@PathVariable long workerId, @PathVariable int days) {
-        var payment = paymentService.getPayment(workerId, days);
-        return payment.getTotal();
+    public Payment getPayment(@PathVariable long workerId, @PathVariable int days) {
+        return paymentService.getPayment(workerId, days);
     }
 }
