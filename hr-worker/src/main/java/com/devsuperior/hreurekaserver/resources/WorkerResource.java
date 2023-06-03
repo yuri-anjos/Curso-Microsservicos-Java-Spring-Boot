@@ -1,7 +1,7 @@
-package com.devsuperior.hrworker.resources;
+package com.devsuperior.hreurekaserver.resources;
 
-import com.devsuperior.hrworker.entities.Worker;
-import com.devsuperior.hrworker.services.WorkerService;
+import com.devsuperior.hreurekaserver.entities.Worker;
+import com.devsuperior.hreurekaserver.services.WorkerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

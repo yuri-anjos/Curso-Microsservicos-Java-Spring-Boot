@@ -1,4 +1,4 @@
-package com.devsuperior.hrworker.entities;
+package com.devsuperior.hreurekaserver.entities;
 
 import javax.persistence.*;
 import java.util.Objects;

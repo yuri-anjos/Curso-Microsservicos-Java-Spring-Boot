@@ -1,7 +1,7 @@
-package com.devsuperior.hrworker.services;
+package com.devsuperior.hreurekaserver.services;
 
-import com.devsuperior.hrworker.entities.Worker;
-import com.devsuperior.hrworker.repositories.WorkerRepository;
+import com.devsuperior.hreurekaserver.entities.Worker;
+import com.devsuperior.hreurekaserver.repositories.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

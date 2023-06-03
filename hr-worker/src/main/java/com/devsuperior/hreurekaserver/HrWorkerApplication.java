@@ -1,4 +1,4 @@
-package com.devsuperior.hrworker;
+package com.devsuperior.hreurekaserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
