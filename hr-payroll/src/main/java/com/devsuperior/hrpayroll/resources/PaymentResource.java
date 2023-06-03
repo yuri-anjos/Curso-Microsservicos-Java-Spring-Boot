@@ -23,6 +23,6 @@ public class PaymentResource {
     }
 
     public Payment getPaymentAlternative(long workerId, int days) {
-        return new Payment("Brann", 5.0, 1);
+        return new Payment("Brann", 5.0, days);
     }
 }
