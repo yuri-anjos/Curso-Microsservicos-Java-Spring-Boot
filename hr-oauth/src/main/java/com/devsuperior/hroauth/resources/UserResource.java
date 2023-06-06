@@ -1,27 +1,21 @@
-package com.devsuperior.hruser.resources;
+package com.devsuperior.hroauth.resources;
 
-import com.devsuperior.hruser.entities.User;
-import com.devsuperior.hruser.services.UserService;
+import com.devsuperior.hroauth.entities.User;
+import com.devsuperior.hroauth.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping(value = "/users")
 public class UserResource {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("/{userId}")
-    public User findById(@PathVariable long userId) {
-        return userService.findById(userId);
-    }
-
-    @GetMapping("/search")
+    @GetMapping(value = "/search")
     public User findByEmail(@RequestParam String email) {
         return userService.findByEmail(email);
     }
