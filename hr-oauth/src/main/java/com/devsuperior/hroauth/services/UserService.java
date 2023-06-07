@@ -1,6 +1,5 @@
 package com.devsuperior.hroauth.services;
 
-import com.devsuperior.hroauth.entities.User;
 import com.devsuperior.hroauth.feign.UserClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,14 +12,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService implements UserDetailsService {
 
-    private Logger logger = LoggerFactory.getLogger(UserService.class);
+    private final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     @Autowired
     private UserClient userClient;
-
-    public User findByEmail(String email) {
-        return userClient.findByEmail(email);
-    }
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
