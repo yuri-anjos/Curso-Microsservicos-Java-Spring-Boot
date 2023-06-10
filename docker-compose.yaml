@@ -1,0 +1,96 @@
+version: '3.8'
+
+services:
+  hr-worker-pg12:
+    image: postgres:12-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: 1234567
+      POSTGRES_DB: db_hr_worker
+    networks:
+      - hr-network
+    volumes:
+      - data:/temp
+  
+  hr-user-pg12:
+    image: postgres:12-alpine
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_PASSWORD: 1234567
+      POSTGRES_DB: db_hr_user
+    networks:
+      - hr-network
+    volumes:
+      - data:/temp
+
+  hr-config-server:
+    build: ./hr-config-server/
+    restart: always
+    ports:
+      - "8888:8888"
+    networks:
+      - hr-network
+    volumes:
+      - data:/temp
+
+  hr-eureka-server:
+    build: ./hr-eureka-server/
+    restart: always
+    ports:
+      - "8761:8761"
+    networks:
+      - hr-network
+    volumes:
+      - data:/temp
+
+  hr-api-gateway-zuul:
+    build: ./hr-api-gateway-zuul/
+    restart: always
+    ports:
+      - "8765:8765"
+    networks:
+      - hr-network
+    volumes:
+      - data:/temp
+
+  hr-worker:
+    build: ./hr-worker/
+    restart: always
+    networks:
+      - hr-network
+    volumes:
+      - data:/temp
+
+  hr-user:
+    build: ./hr-user/
+    restart: always
+    networks:
+      - hr-network
+    volumes:
+      - data:/temp
+
+  hr-payroll:
+    build: ./hr-payroll/
+    restart: always
+    networks:
+      - hr-network
+    volumes:
+      - data:/temp
+
+  hr-oauth:
+    build: ./hr-oauth/
+    restart: always
+    networks:
+      - hr-network
+    volumes:
+      - data:/temp
+
+volumes:
+  data: {}
+
+networks:
+  hr-network:
